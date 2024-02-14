@@ -2,6 +2,8 @@ package main.components;
 
 import java.io.IOException;
 
+import static java.lang.Character.isAlphabetic;
+
 public class Rotor {
     int name;
     String outputConfig;
@@ -19,7 +21,12 @@ public class Rotor {
     }
 
     public char getCrypt(char input) {
-        return this.outputConfig.charAt((int)input - 65);
+        if (isAlphabetic(input)) {
+            return this.outputConfig.charAt((int)input - 65);
+        }
+        else {
+            return input;
+        }
     }
 
     public void shiftConfig() {
