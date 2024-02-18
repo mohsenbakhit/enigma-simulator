@@ -14,17 +14,19 @@ public class RotorSetTest {
     RotorSet rs1;
     @BeforeEach
     void beforeTest() {
-        r1 = new Rotor(1, "JGDQOXUSCAMIFRVTPNEWKBLZYH");
-        r2 = new Rotor(2, "NTZPSFBOKMWRCJDIVLAEYUXHGQ");
-        r3 = new Rotor(2, "JVIUBHTCDYAKEQZPOSGXNRMWFL");
-        rs1 = new RotorSet(r1, r2, r3);
+        r1 = new Rotor(1, "EKMFLGDQVZNTOWYHXUSPAIBRCJ");
+        r2 = new Rotor(2, "AJDKSIRUXBLHWTMCQGZNPYFVOE");
+        r3 = new Rotor(3, "BDFHJLCPRTXVZNYEIWGAKMUSQO");
+        Rotor encryptReflect = new Rotor(4,"YRUHQSLDPXNGOKMIEBFZCWVJAT");
+        rs1 = new RotorSet(r1, r2, r3, encryptReflect);
     }
 
     @Test
     void testSingleKeyCrypt() {
         char res = rs1.getFinalCrypt('A');
-        assertEquals('W',res);
-        assertEquals("HJGDQOXUSCAMIFRVTPNEWKBLZY",r1.getOutputConfig());
+
+        assertEquals('B',res);
+        assertEquals("JEKMFLGDQVZNTOWYHXUSPAIBRC",r1.getOutputConfig());
 
     }
 
