@@ -1,40 +1,19 @@
 package main.components;
 
-import java.io.IOException;
-
-import static java.lang.Character.isAlphabetic;
-
 public class Rotor {
-    int name;
-    String outputConfig;
-    public Rotor(int name, String outputConfig) {
-        this.name = name;
-        this.outputConfig = outputConfig;
+    int count;
+    char[] wiring;
+
+    public Rotor(char startChar, char[] wiring) {
+        this.count = startChar - 'A';
+        this.wiring = wiring;
     }
 
-    public int getName() {
-        return this.name;
+    public char encrypt(char input) {
+        return wiring[input - 'A' + count];
     }
 
-    public String getOutputConfig() {
-        return this.outputConfig;
+    public void incrementCount() {
+        this.count = (this.count + 1) % 26;
     }
-
-    public char getCrypt(char input) {
-        if (isAlphabetic(input)) {
-            return this.outputConfig.charAt((int)input - 65);
-        }
-        else {
-            return input;
-        }
-    }
-
-    public void shiftConfig() {
-        String copyConfig = String.valueOf(outputConfig.charAt(25));
-        for (int i = 0; i < this.outputConfig.length()-1; i++) {
-            copyConfig += outputConfig.charAt(i);
-        }
-        this.outputConfig = copyConfig;
-    }
-
 }
