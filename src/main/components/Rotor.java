@@ -1,6 +1,7 @@
 package main.components;
 
 public class Rotor {
+    private static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     int count;
     char[] wiring;
 
@@ -9,8 +10,21 @@ public class Rotor {
         this.wiring = wiring;
     }
 
-    public char encrypt(char input) {
-        return wiring[input - 'A' + count];
+    public char forwardEncrypt(char input) {
+        int index = (ALPHABET.indexOf(input + count)) % 26;
+        System.out.println(wiring[index]);
+        return wiring[index];
+    }
+
+    public char backwardEncrypt(char input) {
+        int i;
+        for (i = 0; i < wiring.length; i++) {
+            if (wiring[i] == input) {
+                break;
+            }
+        }
+        System.out.println(ALPHABET.charAt(i));
+        return ALPHABET.charAt(i);
     }
 
     public void incrementCount() {

@@ -9,22 +9,22 @@ public class RotorSet {
     private int count;
     public RotorSet(char startChar1, char startChar2, char startChar3,
                     char[] wiring1, char[] wiring2, char[] wiring3) {
-        this.r1 = new Rotor(startChar1, wiring1);
+        this.r1 = new Rotor(startChar1, wiring3);
         this.r2 = new Rotor(startChar2, wiring2);
-        this.r3 = new Rotor(startChar3, wiring3);
+        this.r3 = new Rotor(startChar3, wiring1);
         this.reflector = new Reflector();
         this.count = 0;
     }
 
     public char encryptChar(char input) {
-        rotateRotors();
-        char output = this.r1.encrypt(input);
-        output = this.r2.encrypt(output);
-        output = this.r3.encrypt(output);
+//        rotateRotors();
+        char output = this.r1.forwardEncrypt(input);
+        output = this.r2.forwardEncrypt(output);
+        output = this.r3.forwardEncrypt(output);
         output = this.reflector.reflect(output);
-        output = this.r3.encrypt(output);
-        output = this.r2.encrypt(output);
-        output = this.r1.encrypt(output);
+        output = this.r3.backwardEncrypt(output);
+        output = this.r2.backwardEncrypt(output);
+        output = this.r1.backwardEncrypt(output);
         return output;
     }
 
