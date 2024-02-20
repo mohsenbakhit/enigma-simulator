@@ -9,7 +9,7 @@ public class Reflector {
     }
 
     public char reflect(char input) {
-        System.out.println(wiring[input - 'A']);
+//        System.out.println(wiring[input - 'A']);
         return wiring[input - 'A'];
     }
 }

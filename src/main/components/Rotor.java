@@ -11,8 +11,9 @@ public class Rotor {
     }
 
     public char forwardEncrypt(char input) {
-        int index = (ALPHABET.indexOf(input + count)) % 26;
-        System.out.println(wiring[index]);
+        int index = (ALPHABET.indexOf(input) + count) % 26;
+//        System.out.println("Input is: " + input);
+//        System.out.println(wiring[index]);
         return wiring[index];
     }
 
@@ -23,8 +24,8 @@ public class Rotor {
                 break;
             }
         }
-        System.out.println(ALPHABET.charAt(i - count));
-        return ALPHABET.charAt(i - count);
+//        System.out.println(ALPHABET.charAt(i - count));
+        return ALPHABET.charAt((i - count + 26) % 26);
     }
 
     public void incrementCount() {
