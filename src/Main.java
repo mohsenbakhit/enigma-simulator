@@ -13,6 +13,6 @@ public class Main {
 
         RotorSet engine = new RotorSet('A','A','A',
                 wiring1, wiring2, wiring3);
-        char result = engine.encryptChar('U');
+        char result = engine.encryptChar('D');
     }
 }

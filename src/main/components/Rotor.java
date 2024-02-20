@@ -23,8 +23,8 @@ public class Rotor {
                 break;
             }
         }
-        System.out.println(ALPHABET.charAt(i));
-        return ALPHABET.charAt(i);
+        System.out.println(ALPHABET.charAt(i - count));
+        return ALPHABET.charAt(i - count);
     }
 
     public void incrementCount() {

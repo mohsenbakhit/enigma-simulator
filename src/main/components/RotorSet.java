@@ -17,7 +17,7 @@ public class RotorSet {
     }
 
     public char encryptChar(char input) {
-//        rotateRotors();
+        rotateRotors();
         char output = this.r1.forwardEncrypt(input);
         output = this.r2.forwardEncrypt(output);
         output = this.r3.forwardEncrypt(output);
