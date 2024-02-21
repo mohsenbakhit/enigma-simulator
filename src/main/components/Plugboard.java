@@ -9,7 +9,7 @@ public class Plugboard {
         this.mapping = mapping;
     }
 
-    public void map(char input, char output) {
+    public void plug(char input, char output) {
         if (this.mapping.containsKey(input)) {
             this.mapping.remove(input);
             this.mapping.remove(output);

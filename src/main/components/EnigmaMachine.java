@@ -1,5 +1,7 @@
 package main.components;
 
+import java.util.HashMap;
+
 public class EnigmaMachine {
     //As this is an M3 simulator, we have 3 Rotors and a Reflector
     Rotor r1;
@@ -8,6 +10,7 @@ public class EnigmaMachine {
     Reflector reflector;
     private int count;
 
+    Plugboard plugboard;
     private final char[] wiring1 = new char[]{'E','K','M','F','L','G','D','Q','V','Z','N','T','O','W',
             'Y','H','X','U','S','P','A','I','B','R','C','J'};
     private final char[] wiring2 = new char[]{'A','J','D','K','S','I','R','U','X','B','L','H','W','T',
@@ -19,6 +22,15 @@ public class EnigmaMachine {
         this.r2 = new Rotor(startChar2, wiring2);
         this.r3 = new Rotor(startChar3, wiring3);
         this.reflector = new Reflector();
+        this.plugboard = new Plugboard(new HashMap<>());
+        this.count = 0;
+    }
+    public EnigmaMachine(char startChar1, char startChar2, char startChar3, HashMap<Character, Character> plugboard) {
+        this.r1 = new Rotor(startChar1, wiring1);
+        this.r2 = new Rotor(startChar2, wiring2);
+        this.r3 = new Rotor(startChar3, wiring3);
+        this.reflector = new Reflector();
+        this.plugboard = new Plugboard(plugboard);
         this.count = 0;
     }
 
