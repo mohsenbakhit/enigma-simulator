@@ -9,16 +9,21 @@ public class Plugboard {
         this.mapping = mapping;
     }
 
-    public void map(char input, char output) {
+    public void plug(char input, char output) {
         if (this.mapping.containsKey(input)) {
+            char removable = mapping.get(input);
             this.mapping.remove(input);
-            this.mapping.remove(output);
+            this.mapping.remove(removable);
         }
         this.mapping.put(input, output);
         this.mapping.put(output, input);
+        System.out.println(mapping);
     }
 
     public char retrieve(char input) {
+        if (!this.mapping.containsKey(input)) {
+            return input;
+        }
         return this.mapping.get(input);
     }
 }

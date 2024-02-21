@@ -2,7 +2,7 @@ package main.components;
 
 public class Rotor {
     private static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    int count;
+    private int count;
     char[] wiring;
 
     public Rotor(char startChar, char[] wiring) {
@@ -12,8 +12,6 @@ public class Rotor {
 
     public char forwardEncrypt(char input) {
         int index = (ALPHABET.indexOf(input) + count) % 26;
-//        System.out.println("Input is: " + input);
-//        System.out.println(wiring[index]);
         return wiring[index];
     }
 
@@ -24,11 +22,14 @@ public class Rotor {
                 break;
             }
         }
-//        System.out.println(ALPHABET.charAt(i - count));
         return ALPHABET.charAt((i - count + 26) % 26);
     }
 
     public void incrementCount() {
         this.count = (this.count + 1) % 26;
+    }
+
+    public int getCount() {
+        return this.count;
     }
 }
