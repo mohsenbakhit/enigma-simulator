@@ -20,4 +20,4 @@ To use this implementation of the Enigma machine, follow these steps:
 
 - Set Up the Enigma Machine: Instantiate the EnigmaMachine class and set the initial rotor positions (optional).
 
-- Encrypt a Message: Use the EnigmaMachine.encrypt() method to encrypt a string.
+- Encrypt a Message: Follow the instructions of the command line.
