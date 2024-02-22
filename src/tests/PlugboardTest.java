@@ -14,7 +14,7 @@ class PlugboardTest {
 
     @BeforeEach
     void setPlugboard() {
-        plugboard = new Plugboard(new HashMap<Character, Character>());
+        plugboard = new Plugboard(new HashMap<>());
     }
 
     @Test
