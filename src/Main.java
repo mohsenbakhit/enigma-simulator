@@ -8,19 +8,20 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("WELCOME TO THE ENIGMA SIMULATOR");
-        System.out.println("Initialize your Rotor settings (e.g. AAA)");
+        System.out.println("Initialize your Rotor settings (e.g. AAA):");
         String rotorInput = scanner.nextLine();
         char[] rotorSettings = verifyRotorSettings(rotorInput);
 
         System.out.println("Initialize your plugboard. Enter letters in pairs divided by space i.e. AB CD");
-        System.out.println("or hit enter to leave it empty.");
+        System.out.println("or hit enter to leave it empty:");
         String plugInput = scanner.nextLine();
 
         HashMap<Character, Character> plugboard = verifyPlugboard(plugInput);
         EnigmaMachine engine = new EnigmaMachine(rotorSettings[0], rotorSettings[1],rotorSettings[2], plugboard);
-        String plaintext = "ENTER YOUR TEXT";
+        System.out.println("Enter your plaintext/ciphertext: ");
+        String plaintext = scanner.nextLine();
         String ciphertext = engine.encrypt(plaintext.toUpperCase());
-        System.out.println(ciphertext);
+        System.out.println("Encrypted/Decrypted text: "+ciphertext);
     }
 
     public static char[] verifyRotorSettings(String rotorSettings) throws Exception {
@@ -41,6 +42,7 @@ public class Main {
         for (int i = 0; i < plugInput.length()-1; i+=3) {
             if (Character.isLetter(plugInput.charAt(i))) {
                 map.put(plugInput.charAt(i), plugInput.charAt(i+1));
+                map.put(plugInput.charAt(i+1), plugInput.charAt(i));
             }
             else {
                 throw new Exception("Enter letters in pairs divided by space i.e. AB CD");
