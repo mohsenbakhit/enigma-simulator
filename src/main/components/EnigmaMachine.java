@@ -47,13 +47,15 @@ public class EnigmaMachine {
             return input;
         }
         rotateRotors();
-        char output = this.r1.forwardEncrypt(input);
+        char output = this.plugboard.retrieve(input);
+        output = this.r1.forwardEncrypt(output);
         output = this.r2.forwardEncrypt(output);
         output = this.r3.forwardEncrypt(output);
         output = this.reflector.reflect(output);
         output = this.r3.backwardEncrypt(output);
         output = this.r2.backwardEncrypt(output);
         output = this.r1.backwardEncrypt(output);
+        output = this.plugboard.retrieve(output);
         return output;
     }
 

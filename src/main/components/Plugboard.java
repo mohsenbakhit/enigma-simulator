@@ -10,14 +10,17 @@ public class Plugboard {
     }
 
     public void plug(char input, char output) {
-        if (this.mapping.containsKey(input)) {
+        if (this.mapping.containsKey(input) || this.mapping.containsKey(mapping.get(input))) {
             char removable = mapping.get(input);
             this.mapping.remove(input);
+            this.mapping.remove(removable);
+        } else if (this.mapping.containsKey(output) || this.mapping.containsKey(mapping.get(output))) {
+            char removable = mapping.get(output);
+            this.mapping.remove(output);
             this.mapping.remove(removable);
         }
         this.mapping.put(input, output);
         this.mapping.put(output, input);
-        System.out.println(mapping);
     }
 
     public char retrieve(char input) {

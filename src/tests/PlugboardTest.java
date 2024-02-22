@@ -27,7 +27,7 @@ class PlugboardTest {
     @Test
     void retrieveAlreadyPlugged() {
         plugboard.plug('A','B');
-        plugboard.plug('A','C');
+        plugboard.plug('C','A');
         assertEquals('C',plugboard.retrieve('A'));
         assertEquals('A',plugboard.retrieve('C'));
         assertEquals('B',plugboard.retrieve('B'));
